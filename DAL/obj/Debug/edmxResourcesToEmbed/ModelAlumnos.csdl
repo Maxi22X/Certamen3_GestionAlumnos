@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="masterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="AlumnoId" />
+    </Key>
+    <Property Name="AlumnoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CarreraActual" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EstadoAcademico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PersonaId" Type="Int32" />
+    <NavigationProperty Name="Persona" Relationship="Self.FK__Alumno__PersonaI__1758727B" FromRole="Alumno" ToRole="Persona" />
+    <NavigationProperty Name="Matricula" Relationship="Self.FK__Matricula__Alumn__1A34DF26" FromRole="Alumno" ToRole="Matricula" />
+  </EntityType>
+  <EntityType Name="Matricula">
+    <Key>
+      <PropertyRef Name="MatriculaId" />
+    </Key>
+    <Property Name="MatriculaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Carrera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AnioMatricula" Type="Int32" Nullable="false" />
+    <Property Name="SegmentoAcademico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AlumnoId" Type="Int32" />
+    <NavigationProperty Name="Alumno" Relationship="Self.FK__Matricula__Alumn__1A34DF26" FromRole="Matricula" ToRole="Alumno" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="PersonaId" />
+    </Key>
+    <Property Name="PersonaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Run" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EstadoCivil" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Alumno" Relationship="Self.FK__Alumno__PersonaI__1758727B" FromRole="Persona" ToRole="Alumno" />
+  </EntityType>
+  <Association Name="FK__Alumno__PersonaI__1758727B">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="PersonaId" />
+      </Principal>
+      <Dependent Role="Alumno">
+        <PropertyRef Name="PersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Matricula__Alumn__1A34DF26">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="0..1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="AlumnoId" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MasterDbContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" />
+    <EntitySet Name="Matricula" EntityType="Self.Matricula" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" />
+    <AssociationSet Name="FK__Alumno__PersonaI__1758727B" Association="Self.FK__Alumno__PersonaI__1758727B">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Matricula__Alumn__1A34DF26" Association="Self.FK__Matricula__Alumn__1A34DF26">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="Matricula" EntitySet="Matricula" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="masterModelStoreContainer" CdmEntityContainer="MasterDbContext">
+    <EntitySetMapping Name="Alumno">
+      <EntityTypeMapping TypeName="masterModel.Alumno">
+        <MappingFragment StoreEntitySet="Alumno">
+          <ScalarProperty Name="AlumnoId" ColumnName="AlumnoId" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="CarreraActual" ColumnName="CarreraActual" />
+          <ScalarProperty Name="EstadoAcademico" ColumnName="EstadoAcademico" />
+          <ScalarProperty Name="PersonaId" ColumnName="PersonaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Matricula">
+      <EntityTypeMapping TypeName="masterModel.Matricula">
+        <MappingFragment StoreEntitySet="Matricula">
+          <ScalarProperty Name="MatriculaId" ColumnName="MatriculaId" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Carrera" ColumnName="Carrera" />
+          <ScalarProperty Name="AnioMatricula" ColumnName="AnioMatricula" />
+          <ScalarProperty Name="SegmentoAcademico" ColumnName="SegmentoAcademico" />
+          <ScalarProperty Name="AlumnoId" ColumnName="AlumnoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persona">
+      <EntityTypeMapping TypeName="masterModel.Persona">
+        <MappingFragment StoreEntitySet="Persona">
+          <ScalarProperty Name="PersonaId" ColumnName="PersonaId" />
+          <ScalarProperty Name="Run" ColumnName="Run" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

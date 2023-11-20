@@ -1,0 +1,12 @@
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\bin\Debug\DAL.dll.config
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\bin\Debug\DAL.dll
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\bin\Debug\DAL.pdb
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\obj\Debug\DAL.dll
+C:\Users\Maxi\Documents\CTS 2 semestre\C# Desde la Consola\Certamen3_GestionAlumnos\DAL\obj\Debug\DAL.pdb

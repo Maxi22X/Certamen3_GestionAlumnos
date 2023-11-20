@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="masterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="AlumnoId" />
+    </Key>
+    <Property Name="AlumnoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaIngreso" Type="date" Nullable="false" />
+    <Property Name="CarreraActual" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EstadoAcademico" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PersonaId" Type="int" />
+  </EntityType>
+  <EntityType Name="Matricula">
+    <Key>
+      <PropertyRef Name="MatriculaId" />
+    </Key>
+    <Property Name="MatriculaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Carrera" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AnioMatricula" Type="int" Nullable="false" />
+    <Property Name="SegmentoAcademico" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AlumnoId" Type="int" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="PersonaId" />
+    </Key>
+    <Property Name="PersonaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Run" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="100" />
+    <Property Name="EstadoCivil" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__Alumno__PersonaI__1758727B">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="PersonaId" />
+      </Principal>
+      <Dependent Role="Alumno">
+        <PropertyRef Name="PersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Matricula__Alumn__1A34DF26">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="0..1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="AlumnoId" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="masterModelStoreContainer">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Matricula" EntityType="Self.Matricula" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Alumno__PersonaI__1758727B" Association="Self.FK__Alumno__PersonaI__1758727B">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Matricula__Alumn__1A34DF26" Association="Self.FK__Matricula__Alumn__1A34DF26">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="Matricula" EntitySet="Matricula" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
